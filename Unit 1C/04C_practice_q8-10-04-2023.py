@@ -20,7 +20,6 @@ while inputting:
         else:
             longest_name.append(name)
             long_name_len = len(name)
-            print(len(name))
             # adding to the list with the longer name
 # end of while loop
 
