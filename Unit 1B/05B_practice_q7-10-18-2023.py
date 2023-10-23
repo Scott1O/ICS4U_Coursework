@@ -31,4 +31,13 @@ def median(data_list):
     else:
         return (data_list[len(data_list)//2] + data_list[len(data_list)//2 + 1]) / 2
 
-print(median([98,100,95,88,17,100]))
+input_list = (input("Enter a list of numbers: "))
+input_list = list(map(int, input_list.split(", ")))
+func_choice = input("Do you want to find the mean or median?: ")
+
+if func_choice == "Mean":
+    print(mean(input_list))
+elif func_choice == "Median":
+    print(median(input_list))
+else:
+    print("Invalid input")
