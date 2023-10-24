@@ -12,7 +12,7 @@ def palindrome_checker(user_input):
         True or False whether or not the input is a palindrome
     '''
     reversed_input = ""
-    for letter in reversed(user_input):
+    for letter in reversed(str(user_input)):
         reversed_input += letter
     palindrome = bool(user_input == reversed_input)
 
