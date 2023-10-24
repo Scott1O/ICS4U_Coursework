@@ -4,19 +4,10 @@
 
 def dupe_finder(word1, word2):
     common_list = []
-    smaller = ""
-    bigger = ""
-
-    if len(word1) > len(word2):
-        smaller = word2
-        bigger = word1
-    else:
-        smaller = word1
-        bigger = word2
     
-    for i in range(len(smaller)):
-        if smaller[i] in bigger and smaller[i] not in common_list:
-            common_list.append(smaller[i])
+    for character in word1:
+        if character in word2 and character not in common_list:
+            common_list.append(character)
     
     return sorted(common_list)
 # end of function
