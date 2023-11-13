@@ -1,18 +1,21 @@
-def factors(num):
-    factors_list = []
-    for i in range (1,num):
+from math import sqrt
+
+def proper_factors(num):
+    factors = {1}
+    factor_cap = int(sqrt(num)) + 1
+    for i in range(2,factor_cap):
         if num % i == 0:
-            factors_list.append(i)
+            factors.add(i)
+            factors.add(num // i)
 
-    return factors_list
+    return factors
 
-amicable_pairs = {}
-for i in range(2, 10001):
-    for l in range(2,10001):
-        suml = sum(factors(l))
-        sumi = sum(factors(i))
-        if sumi == l and suml == i and i != l and (i not in amicable_pairs and l not in amicable_pairs):
-            amicable_pairs[i] = l 
+amicable_nums = set()
+for l in range(1,10001):
+    tmp = sum(proper_factors(l))
+    if l == sum(proper_factors(tmp)) and l != tmp:
+        amicable_nums.add(l)
+        amicable_nums.add(tmp)
 
-print(amicable_pairs)
-print((sum(amicable_pairs.values()) + sum(amicable_pairs.keys())))
+print(amicable_nums)
+print(sum(amicable_nums))
